@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock, Paper, Scissors</title>
+<script>
+var hands = ['Rock', 'Paper', 'Scissors'];
+
+function getHand(){
+		return hands[parseInt(Math.random()*hands.length)%3];
+}
+
+var player1 = prompt("What is your name?");
+console.log("Hello " + player1 + ". You are player 1. Player 2 is the computer.");
+
+var player2 = "Computer";
+
+var playWins = 0;
+var compWins = 0;
+
+
+
+function playRound(){
+	var x = hand[hand.length - 1];
+	var j = computer[computer.length - 1];
+
+	var a = x.toString()
+	var b = j.toString()
+
+	if (a == b){
+		console.log("You guys tied!");
+
+	} else if (a == "Scissors" && b == "Rock"){
+		console.log(player1 + " has lost! Sadddd...");
+		compWins++;
+	} else if (a == "Paper" && b == "Rock"){
+		console.log(player1 + " has wonnnn!!! Yay! I guess...");
+		playWins++
+
+	} else if (a == "Rock" && b == "Scissors"){
+		console.log(player1 + " has wonnnn!!! Yay! I guess...");
+		playWins++;
+	} else if (a == "Paper" && b == "Scissors"){
+		console.log(player1 + " has lost! Sadddd...");
+		compWins++;
+
+	} else if (a == "Rock" && b == "Paper"){
+		console.log(player1 + " has lost! Sadddd...");
+		compWins++;
+	} else if (a == "Scissors" && b == "Paper"){
+		console.log(player1 + " has wonnnn!!! Yay! I guess...");
+		playWins++;
+	} else{
+		console.log("Something isn't quite right.")
+	}
+}
+
+
+hand = [];
+computer = [];
+
+while (hand.length <= 3 || computer.length <= 3){
+	for (i = 1; i <=5; i++ ){
+	console.log("Game number: " + i);
+	hand.push(getHand());
+	computer.push(getHand());
+
+	playRound();
+
+	}
+}
+
+console.log(player1 + " won " + playWins + " time(s)!");
+console.log(player2 + " won " + compWins + " time(s)!");
+
+if(playWins>compWins){
+	console.log(player1 + " Wins!");
+} else if (compWins > playWins) {
+	console.log("Computer Wins!");
+} else {
+	console.log("You guys tied altogether! Astonishing!")
+}
+
+
+
+</script>
+
+</head>
+
+<body>
+
+
+</body>
+
+</html>
